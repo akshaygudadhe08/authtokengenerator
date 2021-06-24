@@ -21,4 +21,7 @@ public class Role {
     @Enumerated(EnumType.STRING)
     private RoleType roleName;
     private String description;
+    public Role(RoleType roleType){
+        this.roleName = roleType;
+    }
 }

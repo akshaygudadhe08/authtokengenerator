@@ -1,6 +1,7 @@
 package com.app.auth.payloads;
 
 import java.util.List;
+import java.util.Set;
 
 public class JwtAuthenticationResponse {
     private Long id;
@@ -11,11 +12,11 @@ public class JwtAuthenticationResponse {
     private String lastName;
     private String email;
     private String mobile;
-    private List<String> roles;
+    private Set<String> roles;
 
     public JwtAuthenticationResponse(){}
-    public JwtAuthenticationResponse(Long id,String accessToken,String tokenType,String userName,
-                                     String firstName,String lastName,String email,String mobile, List<String> roles){
+    public JwtAuthenticationResponse(Long id,String accessToken,String userName,
+                                     String firstName,String lastName,String email,String mobile, Set<String> roles){
 
         this.id = id;
         this.accessToken = accessToken;
@@ -52,7 +53,7 @@ public class JwtAuthenticationResponse {
         return mobile;
     }
 
-    public List<String> getRoles() {
+    public Set<String> getRoles() {
         return roles;
     }
 
@@ -88,7 +89,7 @@ public class JwtAuthenticationResponse {
         this.mobile = mobile;
     }
 
-    public void setRoles(List<String> roles) {
+    public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
 }

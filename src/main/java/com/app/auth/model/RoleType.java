@@ -1,7 +1,8 @@
 package com.app.auth.model;
 
 public enum RoleType {
-    USER,
-    ADMIN,
-    ANONYMOUS
+    ROLE_USER,
+    ROLE_ADMIN,
+    ANONYMOUS,
+    ROLE_SUPERADMIN
 }

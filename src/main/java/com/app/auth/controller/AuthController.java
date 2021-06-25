@@ -72,7 +72,7 @@ public class AuthController {
         user.setEmail(signupRequest.getEmail());
         user.setMobile(signupRequest.getMobile());
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
-        Role userrole = roleRepository.findByRoleName(RoleType.ADMIN).orElseThrow(
+        Role userrole = roleRepository.findByRoleName(RoleType.ROLE_ADMIN).orElseThrow(
                 ()->new NoSuchElementException("Role not found"));
         user.setRoles(Collections.singleton(userrole));
         user.setCreatedAt(new Date());
@@ -87,6 +87,7 @@ public class AuthController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
+        System.out.println(loginRequest.getUserName()+" "+ loginRequest.getPassword());
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getUserName(),

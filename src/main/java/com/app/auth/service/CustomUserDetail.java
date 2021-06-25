@@ -38,7 +38,7 @@ public class CustomUserDetail implements UserDetails {
     public static CustomUserDetail createUser(User user){
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(
-                        "ROLE_"+role.getRoleName().name())
+                        role.getRoleName().name())
                 ).collect(Collectors.toList());
 
         return new CustomUserDetail(
@@ -90,21 +90,21 @@ public class CustomUserDetail implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

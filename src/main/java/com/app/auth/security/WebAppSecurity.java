@@ -53,7 +53,7 @@ public class WebAppSecurity extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/v1.0/api/auth/register","/v1.0/api/auth/login")
+                .antMatchers("/v1.0/api/auth/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
@@ -72,7 +72,7 @@ public class WebAppSecurity extends WebSecurityConfigurerAdapter {
 
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
     @Override
-    public AuthenticationManager authenticationManager() throws Exception{
+    public AuthenticationManager authenticationManagerBean() throws Exception{
         return super.authenticationManagerBean();
     }
 }

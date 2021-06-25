@@ -57,6 +57,14 @@ public class JwtAuthenticationResponse {
         return roles;
     }
 
+    public String getTokenType() {
+        return tokenType;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

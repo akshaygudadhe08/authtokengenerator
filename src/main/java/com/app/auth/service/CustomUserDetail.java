@@ -19,11 +19,15 @@ public class CustomUserDetail implements UserDetails {
     private String password;
     private String email;
     private String mobile;
-
+    private Boolean accountNonExpired;
+    private Boolean accountNonLocked;
+    private Boolean credentialsNonExpired;
+    private Boolean enabled;
     private Collection<? extends GrantedAuthority> authorities;
 
     public CustomUserDetail(Long id,String userName,String firstName,String lastName,
-                            String password, String email,String mobile,
+                            String password, String email,String mobile,Boolean accountNonExpired,
+                            Boolean accountNonLocked, Boolean credentialsNonExpired, Boolean enabled,
                             Collection<? extends GrantedAuthority> authorities){
         this.id = id;
         this.userName = userName;
@@ -32,6 +36,10 @@ public class CustomUserDetail implements UserDetails {
         this.password = password;
         this.email = email;
         this.mobile = mobile;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
         this.authorities = authorities;
     }
 
@@ -49,6 +57,10 @@ public class CustomUserDetail implements UserDetails {
                 user.getPassword(),
                 user.getEmail(),
                 user.getMobile(),
+                user.getAccountNonExpired(),
+                user.getAccountNonLocked(),
+                user.getCredentialsNonExpired(),
+                user.getEnable(),
                 authorities
         );
     }
@@ -90,21 +102,21 @@ public class CustomUserDetail implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return accountNonExpired;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return accountNonLocked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return credentialsNonExpired;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 }

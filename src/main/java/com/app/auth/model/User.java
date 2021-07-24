@@ -1,10 +1,7 @@
 package com.app.auth.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -15,6 +12,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
